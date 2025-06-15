@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#007acc" name="theme-color"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<title>Should animals be kept in zoos? - Vocabulary and Listening</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@500;700&display=swap');
+    
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
+    
+    html {
+      touch-action: manipulation;
+      height: -webkit-fill-available;
+    }
+    
+    body { 
+      font-family: 'Cairo', sans-serif; 
+      background-color: #f9fbfc; 
+      margin: 0; 
+      min-height: 100vh;
+      min-height: -webkit-fill-available;
+      font-size: 16px;
+      line-height: 1.5;
+      position: relative;
+    }
+    
+    header, footer { 
+      background: #007acc; 
+      color: white; 
+      text-align: center; 
+      padding: 1rem; 
+      position: relative;
+    }
+    
+    .container { 
+      padding: 1.5rem; 
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .hidden { 
+      display: none; 
+    }
+    
+    .vocab-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 1.5rem 0;
+      border-radius: 12px;
+      overflow: hidden;
+      font-size: 18px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .vocab-table th {
+      background: #007acc;
+      color: #fff;
+      padding: 14px;
+      text-align: center;
+    }
+    
+    .vocab-table td {
+      background: #fff;
+      padding: 12px;
+      border-bottom: 1px solid #eee;
+      text-align: center;
+    }
+    
+    .vocab-table td:first-child { 
+      text-align: left; 
+    }
+    
+    .vocab-table tbody tr:nth-child(even) td { 
+      background: #f0f8ff; 
+    }
+    
+    button.audio {
+      background: transparent;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 50%;
+      transition: background-color 0.2s;
+    }
+    
+    button.audio:hover, button.audio:focus {
+      background-color: rgba(0,0,0,0.05);
+    }
+    
+    button.audio:active {
+      background-color: rgba(0,0,0,0.1);
+    }
+    
+    .btn {
+      background: #007acc;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 10px 0;
+      transition: all 0.3s;
+      font-family: 'Cairo', sans-serif;
+      font-weight: bold;
+    }
+    
+    .btn:hover, .btn:focus {
+      background: #005c99;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .btn:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .toggle-trans-btn {
+      background-color: #6c757d;
+      margin-bottom: 1rem;
+    }
+    
+    .inline-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin: 1rem 0;
+    }
+    
+    .content-box {
+      background: #f0f8ff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .question-box {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .fill-blank {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .fill-blank select {
+      padding: 8px;
+      border-radius: 5px;
+      border: 2px solid #007acc;
+      font-family: 'Cairo', sans-serif;
+      font-size: 16px;
+    }
+    
+    .fill-blank select.correct {
+      border-color: #28a745;
+      background-color: rgba(40, 167, 69, 0.1);
+    }
+    
+    .fill-blank select.incorrect {
+      border-color: #dc3545;
+      background-color: rgba(220, 53, 69, 0.1);
+    }
+    
+    #progress-container {
+      width: 100%;
+      height: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+    }
+    
+    #progress-bar {
+      height: 100%;
+      background-color: #28a745;
+      width: 0%;
+      transition: width 0.5s ease;
+    }
+    
+    .lesson-badge {
+      position: absolute;
+      top: 0;
+      background-color: #28a745;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 0 0 15px 15px;
+      font-weight: bold;
+      z-index: 10;
+    }
+    
+    .lesson-badge-right {
+      right: 20px;
+    }
+    
+    .lesson-badge-left {
+      left: 20px;
+    }
+    
+    section {
+      margin-bottom: 2rem;
+      padding-top: 1rem;
+    }
+    
+    h2 {
+      color: #007acc;
+      margin-bottom: 1rem;
+    }
+    
+    h3 {
+      color: #6c757d;
+      margin-bottom: 1rem;
+    }
+    
+    label {
+      display: block;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+    
+    input[type="radio"] {
+      margin-right: 10px;
+    }
+    
+    .arabic-trans {
+      direction: rtl;
+    }
+    
+    .instructions-box {
+      background: #fff3cd;
+      border: 1px solid #ffeaa7;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .instructions-box h4 {
+      color: #856404;
+      margin: 0 0 0.5rem 0;
+    }
+    
+    .instructions-box p {
+      color: #856404;
+      margin: 0;
+      font-size: 14px;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .vocab-table {
+        font-size: 16px;
+      }
+      
+      .vocab-table th, .vocab-table td {
+        padding: 10px;
+      }
+      
+      .btn {
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+      
+      .content-box, .question-box, .fill-blank {
+        padding: 1rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .vocab-table {
+        font-size: 14px;
+      }
+      
+      .vocab-table th, .vocab-table td {
+        padding: 8px;
+      }
+      
+      .inline-btns {
+        flex-direction: column;
+      }
+      
+      .btn {
+        width: 100%;
+      }
+    }
+    
+    /* Fix for iOS 100vh issue */
+    @supports (-webkit-touch-callout: none) {
+      .min-h-screen {
+        min-height: -webkit-fill-available;
+      }
+    }
+    
+    /* Improved touch targets for mobile */
+    @media (pointer: coarse) {
+      button, .btn, a {
+        min-height: 44px;
+        min-width: 44px;
+      }
+    }
+    
+    /* Home button styles */
+    .home-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #007acc;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      z-index: 9999;
+      text-decoration: none;
+      border: 2px solid white;
+      font-size: 24px;
+    }
+</style>
+<script>
+  // تهيئة حالة الدرس
+  const lessonState = {
+    vocabCompleted: false,
+    listeningCompleted: false,
+    questionCompleted: false,
+    exercise2Completed: false,
+    exercise3Completed: false
+  };
+  
+  // دالة للانتقال بين أقسام الدرس
+  function goToStep(stepId) {
+    // إخفاء جميع الأقسام
+    document.querySelectorAll('section').forEach(section => {
+      section.classList.add('hidden');
+    });
+    
+    // إظهار القسم المطلوب
+    document.getElementById(stepId).classList.remove('hidden');
+    
+    // إيقاف الاستماع إذا كان القسم المطلوب ليس قسم الاستماع
+    if (stepId !== 'listening-section') {
+      stopYouTubeListening();
+    }
+    
+    // تحديث حالة الدرس
+    if (stepId === 'listening-section') {
+      lessonState.vocabCompleted = true;
+    } else if (stepId === 'question-section') {
+      lessonState.listeningCompleted = true;
+    }
+    
+    // Update progress bar
+    updateProgress();
+  }
+  
+  // Function to update progress bar based on lesson state
+  function updateProgress() {
+    const progressBar = document.getElementById('progress-bar');
+    let progress = 0;
+    
+    // حساب نسبة التقدم بناءً على حالة الدرس
+    if (lessonState.vocabCompleted) progress += 20;
+    if (lessonState.listeningCompleted) progress += 20;
+    if (lessonState.questionCompleted) progress += 20;
+    if (lessonState.exercise2Completed) progress += 20;
+    if (lessonState.exercise3Completed) progress += 20;
+    
+    progressBar.style.width = progress + '%';
+    
+    // حفظ نسبة التقدم في localStorage لعرضها في صفحة البداية
+    localStorage.setItem('zooLessonProgress', progress);
+    
+    // Show completion message if progress is 100%
+    if (progress === 100) {
+      document.getElementById('lesson-complete').style.display = 'block';
+    }
+  }
+  
+  // Event listener for the listening question form
+  document.addEventListener('DOMContentLoaded', function() {
+    // تهيئة شريط التقدم
+    updateProgress();
+    
+    const listeningForm = document.getElementById('listening-form');
+    if (listeningForm) {
+      listeningForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const selectedAnswer = document.querySelector('input[name="listeningQ"]:checked');
+        const feedback = document.getElementById('feedback');
+        const goToExercise2Button = document.getElementById('goToExercise2');
+        
+        if (!selectedAnswer) {
+          feedback.textContent = 'الرجاء اختيار إجابة | Please select an answer';
+          feedback.style.color = '#dc3545';
+          return;
+        }
+        
+        if (selectedAnswer.value === 'Zoos help protect endangered species') {
+          feedback.textContent = '✅ إجابة صحيحة! | Correct answer!';
+          feedback.style.color = '#28a745';
+          goToExercise2Button.style.display = 'block';
+          lessonState.questionCompleted = true;
+          updateProgress();
+        } else {
+          feedback.textContent = '❌ إجابة خاطئة، حاول مرة أخرى | Incorrect, try again';
+          feedback.style.color = '#dc3545';
+        }
+      });
+    }
+    
+    // Event listener for exercise 2 form
+    const exercise2Form = document.getElementById('exercise2-quiz');
+    if (exercise2Form) {
+      exercise2Form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const answers = {
+          q1: 'حديقة الحيوان',
+          q2: 'مهددة بالانقراض',
+          q3: 'الحفاظ على',
+          q4: 'الموطن الطبيعي'
+        };
+        
+        let score = 0;
+        let feedback = '';
+        
+        for (const q in answers) {
+          const selected = document.querySelector(`input[name="${q}"]:checked`);
+          if (selected && selected.value === answers[q]) {
+            score++;
+            feedback += `<p>✅ السؤال ${q.substring(1)}: إجابة صحيحة!</p>`;
+          } else {
+            feedback += `<p>❌ السؤال ${q.substring(1)}: الإجابة الصحيحة هي "${answers[q]}"</p>`;
+          }
+        }
+        
+        feedback += `<p>النتيجة: ${score}/4</p>`;
+        
+        document.getElementById('exercise2-feedback').innerHTML = feedback;
+        
+        // تحديث حالة إكمال التمرين الثاني
+        lessonState.exercise2Completed = true;
+        updateProgress();
+        
+        // إظهار زر الانتقال للتمرين الثالث
+        document.getElementById('goToExercise3').style.display = 'block';
+      });
+    }
+    
+    // Event listener for exercise 3 form
+    const exercise3Form = document.getElementById('exercise3-form');
+    if (exercise3Form) {
+      // تحقق من الإجابات عند تغيير أي اختيار
+      document.querySelectorAll('#exercise3-form select').forEach(select => {
+        select.addEventListener('change', function() {
+          const correctAnswer = this.getAttribute('data-correct');
+          if (this.value === correctAnswer) {
+            this.classList.add('correct');
+            this.classList.remove('incorrect');
+          } else {
+            this.classList.add('incorrect');
+            this.classList.remove('correct');
+          }
+          
+          // تحقق من جميع الإجابات
+          checkAllExercise3Answers();
+        });
+      });
+      
+      // عند تقديم النموذج
+      exercise3Form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // تحقق من جميع الإجابات وعرض النتيجة
+        const result = checkAllExercise3Answers(true);
+        
+        // تحديث حالة إكمال التمرين الثالث إذا كانت جميع الإجابات صحيحة
+        if (result.allCorrect) {
+          lessonState.exercise3Completed = true;
+          updateProgress();
+          // تعيين حالة إكمال الدرس في localStorage
+          localStorage.setItem("zooLessonCompleted", "true");
+        }
+      });
+    }
+    
+    // Add touch event listeners for better mobile experience
+    document.querySelectorAll('.btn, button.audio, a').forEach(element => {
+      element.addEventListener('touchstart', function() {
+        this.style.opacity = '0.7';
+      });
+      
+      element.addEventListener('touchend', function() {
+        this.style.opacity = '1';
+      });
+    });
+    
+    // Fix for iOS 100vh issue
+    function setHeight() {
+      document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+    }
+    
+    setHeight();
+    window.addEventListener('resize', setHeight);
+    window.addEventListener('orientationchange', setHeight);
+    
+    // إضافة زر الصفحة الرئيسية
+    addHomeButton();
+  });
+  
+  // دالة للتحقق من جميع إجابات التمرين الثالث
+  function checkAllExercise3Answers(showFeedback = false) {
+    const selects = document.querySelectorAll('#exercise3-form select');
+    let correctCount = 0;
+    let totalCount = selects.length;
+    
+    selects.forEach(select => {
+      const correctAnswer = select.getAttribute('data-correct');
+      if (select.value === correctAnswer) {
+        correctCount++;
+      }
+    });
+    
+    const allCorrect = correctCount === totalCount;
+    
+    // عرض التغذية الراجعة إذا طلب ذلك
+    if (showFeedback) {
+      const feedback = document.getElementById('exercise3-feedback');
+      if (feedback) {
+        if (allCorrect) {
+          feedback.innerHTML = `<p class="animate__animated animate__fadeIn" style="color: #28a745; font-weight: bold;">✅ أحسنت! جميع إجاباتك صحيحة (${correctCount}/${totalCount})</p>`;
+        } else {
+          feedback.innerHTML = `<p class="animate__animated animate__fadeIn" style="color: #dc3545; font-weight: bold;">❌ لديك بعض الإجابات غير الصحيحة. النتيجة: ${correctCount}/${totalCount}</p>`;
+        }
+      }
+    }
+    
+    return {
+      correctCount,
+      totalCount,
+      allCorrect
+    };
+  }
+  
+  // دالة لإضافة زر الصفحة الرئيسية
+  function addHomeButton() {
+    // إنشاء زر الصفحة الرئيسية
+    const homeButton = document.createElement('a');
+    homeButton.href = 'index.html';
+    homeButton.className = 'home-button';
+    homeButton.title = 'الصفحة الرئيسية';
+    homeButton.innerHTML = '🏠';
+    
+    // إضافة الزر إلى الصفحة
+    document.body.appendChild(homeButton);
+  }
+  
+  // دالة لإيقاف فيديو يوتيوب
+  function stopYouTubeListening() {
+    const iframe = document.querySelector('iframe[src*="youtube.com"]');
+    if (iframe) {
+      const iframeSrc = iframe.src;
+      iframe.src = iframeSrc;
+    }
+  }
+  
+  // دالة لنطق الكلمات
+  function speak(text) {
+    if ('speechSynthesis' in window) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'en-US';
+      utterance.rate = 0.9;
+      window.speechSynthesis.speak(utterance);
+    }
+  }
+  
+  // دالة لإظهار/إخفاء الترجمة العربية
+  function toggleTranslations() {
+    const translations = document.querySelectorAll('.arabic-trans');
+    translations.forEach(trans => {
+      trans.style.display = trans.style.display === 'none' ? 'table-cell' : 'none';
+    });
+  }
+</script>
+</head>
+<body>
+<div class="lesson-badge lesson-badge-right">الدرس 5</div>
+<div class="lesson-badge lesson-badge-left">Lesson 5</div>
+<header>
+<h1>تعلم الإنجليزية - Learn English</h1>
+</header>
+<div class="container">
+<p style="text-align: center; font-weight: bold; margin-bottom: 0.5rem;">🔄 التقدم في الدرس | Lesson Progress</p>
+<div id="progress-container">
+<div id="progress-bar"></div>
+</div>
+<div id="lesson-complete" style="display:none; background-color:#d4edda; color:#155724; padding:1rem; border-radius:10px; margin-bottom:1rem;">
+<h3>🎉 تهانينا! لقد أكملت الدرس بنجاح | Congratulations! You have successfully completed the lesson</h3>
+</div>
+<!-- قسم المفردات -->
+<section id="vocab-section">
+<h2>🦁 هل يجب الاحتفاظ بالحيوانات في حدائق الحيوان؟ | Should animals be kept in zoos?</h2>
+<div class="content-box">
+<p><strong>مرحباً بك في الدرس الخامس!</strong> في هذا الدرس، سنناقش موضوع حدائق الحيوان ودورها في حماية الحيوانات المهددة بالانقراض.</p>
+<p><strong>Welcome to Lesson 5!</strong> In this lesson, we'll discuss zoos and their role in protecting endangered animals.</p>
+</div>
+<button class="btn toggle-trans-btn" onclick="toggleTranslations()">إظهار/إخفاء الترجمة العربية | Show/Hide Arabic Translation</button>
+<table class="vocab-table">
+<thead>
+<tr>
+<th>الكلمة | Word</th>
+<th>النطق | Pronunciation</th>
+<th class="arabic-trans">الترجمة | Translation</th>
+<th>مثال | Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>zoo</strong></td>
+<td><button class="audio" onclick="speak('zoo')">🔊</button></td>
+<td class="arabic-trans">حديقة الحيوان</td>
+<td>We visited the zoo last weekend. <button class="audio" onclick="speak('We visited the zoo last weekend')">🔊</button></td>
+</tr>
+<tr>
+<td><strong>endangered species</strong></td>
+<td><button class="audio" onclick="speak('endangered species')">🔊</button></td>
+<td class="arabic-trans">أنواع مهددة بالانقراض</td>
+<td>Pandas are an endangered species. <button class="audio" onclick="speak('Pandas are an endangered species')">🔊</button></td>
+</tr>
+<tr>
+<td><strong>conservation</strong></td>
+<td><button class="audio" onclick="speak('conservation')">🔊</button></td>
+<td class="arabic-trans">الحفاظ على</td>
+<td>Wildlife conservation is very important. <button class="audio" onclick="speak('Wildlife conservation is very important')">🔊</button></td>
+</tr>
+<tr>
+<td><strong>habitat</strong></td>
+<td><button class="audio" onclick="speak('habitat')">🔊</button></td>
+<td class="arabic-trans">الموطن الطبيعي</td>
+<td>Deforestation destroys animal habitats. <button class="audio" onclick="speak('Deforestation destroys animal habitats')">🔊</button></td>
+</tr>
+<tr>
+<td><strong>captivity</strong></td>
+<td><button class="audio" onclick="speak('captivity')">🔊</button></td>
+<td class="arabic-trans">الأسر</td>
+<td>Some animals don't thrive in captivity. <button class="audio" onclick="speak('Some animals don\'t thrive in captivity')">🔊</button></td>
+</tr>
+<tr>
+<td><strong>breeding program</strong></td>
+<td><button class="audio" onclick="speak('breeding program')">🔊</button></td>
+<td class="arabic-trans">برنامج التكاثر</td>
+<td>The zoo has a successful breeding program. <button class="audio" onclick="speak('The zoo has a successful breeding program')">🔊</button></td>
+</tr>
+<tr>
+<td><strong>wildlife</strong></td>
+<td><button class="audio" onclick="speak('wildlife')">🔊</button></td>
+<td class="arabic-trans">الحياة البرية</td>
+<td>We need to protect wildlife for future generations. <button class="audio" onclick="speak('We need to protect wildlife for future generations')">🔊</button></td>
+</tr>
+<tr>
+<td><strong>extinction</strong></td>
+<td><button class="audio" onclick="speak('extinction')">🔊</button></td>
+<td class="arabic-trans">الانقراض</td>
+<td>Many species face extinction due to climate change. <button class="audio" onclick="speak('Many species face extinction due to climate change')">🔊</button></td>
+</tr>
+<tr>
+<td><strong>enclosure</strong></td>
+<td><button class="audio" onclick="speak('enclosure')">🔊</button></td>
+<td class="arabic-trans">حظيرة/قفص</td>
+<td>The lion enclosure is very spacious. <button class="audio" onclick="speak('The lion enclosure is very spacious')">🔊</button></td>
+</tr>
+<tr>
+<td><strong>rehabilitation</strong></td>
+<td><button class="audio" onclick="speak('rehabilitation')">🔊</button></td>
+<td class="arabic-trans">إعادة التأهيل</td>
+<td>The center focuses on wildlife rehabilitation. <button class="audio" onclick="speak('The center focuses on wildlife rehabilitation')">🔊</button></td>
+</tr>
+<tr>
+<td><strong>poaching</strong></td>
+<td><button class="audio" onclick="speak('poaching')">🔊</button></td>
+<td class="arabic-trans">الصيد الجائر</td>
+<td>Poaching threatens many African animals. <button class="audio" onclick="speak('Poaching threatens many African animals')">🔊</button></td>
+</tr>
+<tr>
+<td><strong>sanctuary</strong></td>
+<td><button class="audio" onclick="speak('sanctuary')">🔊</button></td>
+<td class="arabic-trans">محمية</td>
+<td>The elephant sanctuary provides a safe home. <button class="audio" onclick="speak('The elephant sanctuary provides a safe home')">🔊</button></td>
+</tr>
+<tr>
+<td><strong>biodiversity</strong></td>
+<td><button class="audio" onclick="speak('biodiversity')">🔊</button></td>
+<td class="arabic-trans">التنوع البيولوجي</td>
+<td>Protecting biodiversity is crucial for our planet. <button class="audio" onclick="speak('Protecting biodiversity is crucial for our planet')">🔊</button></td>
+</tr>
+<tr>
+<td><strong>ethical</strong></td>
+<td><button class="audio" onclick="speak('ethical')">🔊</button></td>
+<td class="arabic-trans">أخلاقي</td>
+<td>Is it ethical to keep animals in zoos? <button class="audio" onclick="speak('Is it ethical to keep animals in zoos?')">🔊</button></td>
+</tr>
+<tr>
+<td><strong>research</strong></td>
+<td><button class="audio" onclick="speak('research')">🔊</button></td>
+<td class="arabic-trans">البحث العلمي</td>
+<td>Zoos conduct important research on animal behavior. <button class="audio" onclick="speak('Zoos conduct important research on animal behavior')">🔊</button></td>
+</tr>
+<tr>
+<td><strong>education</strong></td>
+<td><button class="audio" onclick="speak('education')">🔊</button></td>
+<td class="arabic-trans">التعليم</td>
+<td>Zoos play an important role in education. <button class="audio" onclick="speak('Zoos play an important role in education')">🔊</button></td>
+</tr>
+</tbody>
+</table>
+<div class="inline-btns">
+<button class="btn" onclick="goToStep('listening-section')">التالي: الاستماع للدرس | Next: Listen to the Lesson</button>
+</div>
+</section>
+<!-- قسم الاستماع -->
+<section class="hidden" id="listening-section">
+<h2>📺 الاستماع للدرس | Watch the Listening</h2>
+<div class="content-box">
+<p><strong>شاهد هذا الاستماع من BBC Learning English عن حدائق الحيوان:</strong></p>
+<p><strong>Watch this listening from BBC Learning English about zoos:</strong></p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; border-radius: 10px;">
+<iframe allowfullscreen="" src="https://www.youtube.com/embed/d6BGuntMwCM" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
+</iframe>
+</div>
+</div>
+<div class="inline-btns">
+<button class="btn" onclick="goToStep('vocab-section')">السابق: المفردات | Previous: Vocabulary</button>
+<button class="btn" onclick="goToStep('question-section')">التالي: التمرين الأول | Next: Exercise 1</button>
+</div>
+</section>
+<!-- قسم السؤال الأول (الاستماع) -->
+<section class="hidden" id="question-section">
+<h2>🎧 التمرين الأول: الاستماع | Exercise 1: Listening</h2>
+<div class="instructions-box">
+<h4>التعليمات | Instructions</h4>
+<p>العربية: استمع إلى المقطع بعناية وأجب على السؤال التالي باللغة الإنجليزية. هذا التمرين يقيس مهارة الاستماع لديك.</p>
+<p>English: Listen to the audio carefully and answer the following question in English. This exercise measures your listening skills.</p>
+</div>
+<div class="question-box">
+<h3>According to the listening, what is one main argument in favor of zoos?</h3>
+<form id="listening-form">
+<label>
+<input name="listeningQ" type="radio" value="Zoos are profitable businesses"/>
+          Zoos are profitable businesses
+        </label>
+<label>
+<input name="listeningQ" type="radio" value="Zoos help protect endangered species"/>
+          Zoos help protect endangered species
+        </label>
+<label>
+<input name="listeningQ" type="radio" value="Animals are happier in zoos than in the wild"/>
+          Animals are happier in zoos than in the wild
+        </label>
+<label>
+<input name="listeningQ" type="radio" value="Zoos provide entertainment for families"/>
+          Zoos provide entertainment for families
+        </label>
+<button class="btn" type="submit">تحقق من الإجابة | Check Answer</button>
+</form>
+<div id="feedback" style="margin-top: 1rem; font-weight: bold;"></div>
+<button class="btn" id="goToExercise2" onclick="goToStep('exercise2-section')" style="display: none;">التالي: التمرين الثاني | Next: Exercise 2</button>
+</div>
+<div class="inline-btns">
+<button class="btn" onclick="goToStep('listening-section')">السابق: الاستماع | Previous: Listening</button>
+</div>
+</section>
+<!-- التمرين الثاني: الترجمة -->
+<section class="hidden" id="exercise2-section">
+<h2>📝 التمرين الثاني: الترجمة | Exercise 2: Translation</h2>
+<div class="instructions-box">
+<h4>التعليمات | Instructions</h4>
+<p><strong>العربية:</strong> اختر الترجمة الصحيحة للكلمات الإنجليزية التالية إلى اللغة العربية.</p>
+<p><strong>English:</strong> Choose the correct Arabic translation for the following English words.</p>
+</div>
+<div class="question-box">
+<form id="exercise2-quiz">
+<div style="margin-bottom: 1rem;">
+<h4>1. Zoo</h4>
+<label><input name="q1" type="radio" value="حديقة الحيوان"/> حديقة الحيوان</label>
+<label><input name="q1" type="radio" value="حديقة الأطفال"/> حديقة الأطفال</label>
+<label><input name="q1" type="radio" value="حديقة الورود"/> حديقة الورود</label>
+<label><input name="q1" type="radio" value="حديقة المنزل"/> حديقة المنزل</label>
+</div>
+<div style="margin-bottom: 1rem;">
+<h4>2. Endangered species</h4>
+<label><input name="q2" type="radio" value="حيوانات أليفة"/> حيوانات أليفة</label>
+<label><input name="q2" type="radio" value="مهددة بالانقراض"/> مهددة بالانقراض</label>
+<label><input name="q2" type="radio" value="حيوانات برية"/> حيوانات برية</label>
+<label><input name="q2" type="radio" value="حيوانات مفترسة"/> حيوانات مفترسة</label>
+</div>
+<div style="margin-bottom: 1rem;">
+<h4>3. Conservation</h4>
+<label><input name="q3" type="radio" value="الحفاظ على"/> الحفاظ على</label>
+<label><input name="q3" type="radio" value="التدمير"/> التدمير</label>
+<label><input name="q3" type="radio" value="الصيد"/> الصيد</label>
+<label><input name="q3" type="radio" value="البيع"/> البيع</label>
+</div>
+<div style="margin-bottom: 1rem;">
+<h4>4. Habitat</h4>
+<label><input name="q4" type="radio" value="الطعام"/> الطعام</label>
+<label><input name="q4" type="radio" value="الماء"/> الماء</label>
+<label><input name="q4" type="radio" value="الموطن الطبيعي"/> الموطن الطبيعي</label>
+<label><input name="q4" type="radio" value="المأوى"/> المأوى</label>
+</div>
+<button class="btn" type="submit">تحقق من الإجابات | Check Answers</button>
+</form>
+<div id="exercise2-feedback" style="margin-top: 1rem;"></div>
+<button class="btn" id="goToExercise3" onclick="goToStep('exercise3-section')" style="display: none;">التالي: التمرين الثالث | Next: Exercise 3</button>
+</div>
+<div class="inline-btns">
+<button class="btn" onclick="goToStep('question-section')">السابق: التمرين الأول | Previous: Exercise 1</button>
+</div>
+</section>
+<!-- التمرين الثالث: إكمال الجمل -->
+<section class="hidden" id="exercise3-section">
+<h2>✏️ التمرين الثالث: إكمال الجمل | Exercise 3: Complete the Sentences</h2>
+<div class="instructions-box">
+<h4>التعليمات | Instructions</h4>
+<p><strong>العربية:</strong> اختر الكلمة المناسبة لإكمال كل جملة من القائمة المنسدلة.</p>
+<p><strong>English:</strong> Choose the appropriate word to complete each sentence from the dropdown list.</p>
+</div>
+<div class="fill-blank">
+<form id="exercise3-form">
+<p>1. Many <select data-correct="endangered">
+<option value="">اختر | Choose</option>
+<option value="common">common</option>
+<option value="endangered">endangered</option>
+<option value="domestic">domestic</option>
+</select> species are protected in modern zoos.</p>
+<p>2. Wildlife <select data-correct="conservation">
+<option value="">اختر | Choose</option>
+<option value="destruction">destruction</option>
+<option value="conservation">conservation</option>
+<option value="hunting">hunting</option>
+</select> is one of the main goals of zoos.</p>
+<p>3. Animals in <select data-correct="captivity">
+<option value="">اختر | Choose</option>
+<option value="freedom">freedom</option>
+<option value="captivity">captivity</option>
+<option value="nature">nature</option>
+</select> may behave differently than in the wild.</p>
+<p>4. Successful <select data-correct="breeding">
+<option value="">اختر | Choose</option>
+<option value="feeding">feeding</option>
+<option value="breeding">breeding</option>
+<option value="training">training</option>
+</select> programs help increase animal populations.</p>
+<p>5. <select data-correct="Poaching">
+<option value="">اختر | Choose</option>
+<option value="Feeding">Feeding</option>
+<option value="Poaching">Poaching</option>
+<option value="Protecting">Protecting</option>
+</select> is a major threat to wildlife in Africa.</p>
+<button class="btn" type="submit">تحقق من الإجابات | Check Answers</button>
+</form>
+<div id="exercise3-feedback" style="margin-top: 1rem;"></div>
+</div>
+<div class="inline-btns">
+<button class="btn" onclick="goToStep('exercise2-section')">السابق: التمرين الثاني | Previous: Exercise 2</button>
+</div>
+</section>
+</div>
+<footer><p>© 2025 جميع الحقوق محفوظة - تعلم الإنجليزية | All rights reserved - Learn English</p></footer>
+<script>
+</script>
+<script>
+function updateProgressBar(progress) {
+  const bar = document.querySelector(".progress-bar");
+  if (bar) {
+    bar.style.width = progress + "%";
+    if (progress === 100) {
+      localStorage.setItem("lesson_completed_lesson5_animals_in_zoos.html", "true");
+    }
+  }
+}
+  }
+}
+  }
+}
+</script>
+</body>
+</html>
