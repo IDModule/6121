@@ -501,7 +501,7 @@
           lessonState.exercise3Completed = true;
           updateProgress();
           // تعيين حالة إكمال الدرس في localStorage
-          localStorage.setItem("smellsLessonCompleted", "true");
+          localStorage.setItem("lesson16Completed", "true");
         }
       });
     }
@@ -817,7 +817,7 @@
 </div>
 <div style="margin-bottom: 1rem;">
 <h4>3. Home</h4>
-<label><input name="q3" type="radio" value="البيت"/> البيت</label>
+<label><input name="q3" type="radio" value="المكان"/> المكان</label>
 <label><input name="q3" type="radio" value="المنزل"/> المنزل</label>
 <label><input name="q3" type="radio" value="المدينة"/> المدينة</label>
 <label><input name="q3" type="radio" value="البلد"/> البلد</label>
@@ -896,7 +896,7 @@ function updateProgressBar(progress) {
   if (bar) {
     bar.style.width = progress + "%";
     if (progress === 100) {
-      localStorage.setItem("lesson_completed_lesson16_smells_home.html", "true");
+      localStorage.setItem("lesson16Completed", "true");
     }
   }
 }
