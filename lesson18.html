@@ -501,7 +501,7 @@
           lessonState.exercise3Completed = true;
           updateProgress();
           // تعيين حالة إكمال الدرس في localStorage
-          localStorage.setItem("futureWorkLessonCompleted", "true");
+          localStorage.setItem("lesson18Completed", "true");
         }
       });
     }
@@ -896,7 +896,7 @@ function updateProgressBar(progress) {
   if (bar) {
     bar.style.width = progress + "%";
     if (progress === 100) {
-      localStorage.setItem("lesson_completed_lesson18_future_work.html", "true");
+      localStorage.setItem("lesson18Completed", "true");
     }
   }
 }
