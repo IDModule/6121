@@ -439,7 +439,7 @@
         const answers = {
           q1: 'السعادة',
           q2: 'الناتج المحلي الإجمالي',
-          q3: 'بوتان',
+          q3: 'مستدام',
           q4: 'الرفاهية'
         };
         
@@ -501,7 +501,7 @@
           lessonState.exercise3Completed = true;
           updateProgress();
           // تعيين حالة إكمال الدرس في localStorage
-          localStorage.setItem("happinessLessonCompleted", "true");
+          localStorage.setItem("lesson14Completed", "true");
         }
       });
     }
@@ -816,12 +816,8 @@
 <label><input name="q2" type="radio" value="الاقتصاد الوطني"/> الاقتصاد الوطني</label>
 </div>
 <div style="margin-bottom: 1rem;">
-<h4>3. Bhutan</h4>
-<label><input name="q3" type="radio" value="نيبال"/> نيبال</label>
-<label><input name="q3" type="radio" value="بوتان"/> بوتان</label>
-<label><input name="q3" type="radio" value="تايلاند"/> تايلاند</label>
-<label><input name="q3" type="radio" value="بنغلاديش"/> بنغلاديش</label>
-</div>
+<h4>3. Sustainable</h4>
+<label><input name="q3" type="radio" value="قابل للقياس"/> قابل للقياس</label><label><input name="q3" type="radio" value="مؤقت"/> مؤقت</label><label><input name="q3" type="radio" value="مستدام"/> مستدام</label><label><input name="q3" type="radio" value="متغير"/> متغير</label></div>
 <div style="margin-bottom: 1rem;">
 <h4>4. Well-being</h4>
 <label><input name="q4" type="radio" value="الصحة"/> الصحة</label>
@@ -896,7 +892,7 @@ function updateProgressBar(progress) {
   if (bar) {
     bar.style.width = progress + "%";
     if (progress === 100) {
-      localStorage.setItem("lesson_completed_lesson14_happiness.html", "true");
+      localStorage.setItem("lesson14Completed", "true");
     }
   }
 }
